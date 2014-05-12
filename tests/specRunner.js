@@ -7,11 +7,11 @@ require.config({
 
 require(
 	[
-	"hello",
-	"world",
-	"spec/hello.test"
+		"hello",
+		"world",
+		"spec/hello.test"
 	],
-	function( ){
+	function() {
 
 		console.log('ready to run tests...');
 
@@ -37,13 +37,11 @@ require(
 			data = JSON.stringify(window.__coverage__);
 			req.open('post', '/cov', false);
 			res = req.send(data);
-			console.log(res);
-			 
 		}
 
 		execJasmine();
 
 		sendCoverageData();
 
- 
+
 	});

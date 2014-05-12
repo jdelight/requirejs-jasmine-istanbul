@@ -18,21 +18,34 @@ module.exports = function(grunt) {
                             if (req.url !== '/cov') return next();
                             req.on('data', function(data) {
                                 var json = data.toString();
-                                fs.writeFile("./cov/coverage.json", json, function(err) {
-                                    if (err) {
-                                        console.log(err);
+
+                                function generateCov() {
+                                    fs.writeFile("./cov/coverage.json", json, function(err) {
+                                        if (err) {
+                                            console.log(err);
+                                        } else {
+                                            console.log("Created coverage.json");
+                                            exec('./tools/create_cov.sh', function(err, stdout, stderr) {
+                                                if (stderr) {
+                                                    console.log('stderr: ' + stderr);
+                                                }
+                                                if (stdout) {
+                                                    console.log('stdout: ' + stdout);
+                                                }
+                                                if (err !== null) {
+                                                    console.log('exec error: ' + error);
+                                                }
+                                            });
+                                        }
+                                    });
+
+                                }
+                                fs.exists('cov', function(covDirExists) {
+                                    if (covDirExists) {
+                                        generateCov()
                                     } else {
-                                        console.log("Created coverage.json");
-                                        exec('./tools/create_cov.sh', function(err, stdout, stderr) {
-                                            if (stderr) {
-                                                console.log('stderr: ' + stderr);
-                                            }
-                                            if (stdout) {
-                                                console.log('stdout: ' + stdout);
-                                            }
-                                            if (err !== null) {
-                                                console.log('exec error: ' + error);
-                                            }
+                                        fs.mkdir('cov', function(err) {
+                                            generateCov();
                                         });
                                     }
                                 });

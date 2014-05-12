@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "dev": "grunt"
+    "dev": "npm install && grunt instrument && grunt"
   },
   "repository": {
     "type": "git",
