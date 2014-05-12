@@ -13,12 +13,9 @@ define(['hello'], function(hello){
 
 
 		describe('conditional', function(){
-			// In Jasmine 1.2 the function call below will be registered with istanbul
-			// var cond = hello.conditional(false);
-	        
+
 	        it('should return a if predicate is true', function(){
-	        	// In Jasmine 1.2 the function call below will not be registered with istanbul
-	        	// so it will appear that the function was not was not called
+	        	// this function is registered with istanbul in version 2 of jasmine
 				var cond = hello.conditional(false);
  	           	expect(cond).toEqual('a');
 	        });

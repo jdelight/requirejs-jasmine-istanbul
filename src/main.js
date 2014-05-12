@@ -1,4 +1,8 @@
-require(['hello'], function(hello) {
+require([
+	'hello'
+], function(
+	hello
+) {
 
 	hello.init();
 

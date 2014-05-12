@@ -1,4 +1,8 @@
-define(['world'], function(world) {
+define([
+	'world'
+], function(
+	world
+) {
 
 	function init() {
 		return 'hello ' + world.init();
