@@ -1,7 +1,7 @@
 require.config({
 	paths: {
-		'hello': '../hello',
-		'world': '../world',
+		'hello': '../src-cov/hello',
+		'world': '../src-cov/world',
 	},
 });
 
@@ -9,7 +9,7 @@ require(
 	[
 	"hello",
 	"world",
-	"spec/test"
+	"spec/hello.test"
 	],
 	function( ){
 
@@ -28,15 +28,22 @@ require(
 			return htmlReporter.specFilter(spec);
 		};
 
-		var currentWindowOnload = window.onload;
-
-			if (currentWindowOnload) {
-				currentWindowOnload();
-			}
-
 		function execJasmine() {
 			jasmineEnv.execute();
 		}
 
+		function sendCoverageData() {
+			var res, req = new XMLHttpRequest();
+			data = JSON.stringify(window.__coverage__);
+			req.open('post', '/cov', false);
+			res = req.send(data);
+			console.log(res);
+			 
+		}
+
 		execJasmine();
+
+		sendCoverageData();
+
+ 
 	});
