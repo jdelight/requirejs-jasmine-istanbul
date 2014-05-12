@@ -1,40 +1,42 @@
 require.config({
-    paths: {
-        'hello': '../hello',
-        'world': '../world',
-        spec: 'spec'
-    },
+	paths: {
+		'hello': '../hello',
+		'world': '../world',
+	},
 });
 
-          require(
-            [
-                "hello",
-                "world",
-                "spec/test"
-            ],
-            function( ){
+require(
+	[
+	"hello",
+	"world",
+	"spec/test"
+	],
+	function( ){
 
-var jasmineEnv = jasmine.getEnv();
-                  jasmineEnv.updateInterval = 1000;
+		console.log('ready to run tests...');
 
-                  var htmlReporter = new jasmine.HtmlReporter();
+		console.log(jasmine);
 
-                  jasmineEnv.addReporter(htmlReporter);
+		var jasmineEnv = jasmine.getEnv();
+		jasmineEnv.updateInterval = 1000;
 
-                  jasmineEnv.specFilter = function(spec) {
-                    return htmlReporter.specFilter(spec);
-                  };
+		var htmlReporter = new jasmine.HtmlReporter();
 
-                  var currentWindowOnload = window.onload;
+		jasmineEnv.addReporter(htmlReporter);
 
-                  window.onload = function() {
-                    if (currentWindowOnload) {
-                      currentWindowOnload();
-                    }
-                    execJasmine();
-                  };
+		jasmineEnv.specFilter = function(spec) {
+			return htmlReporter.specFilter(spec);
+		};
 
-                  function execJasmine() {
-                    jasmineEnv.execute();
-                  }
-            });
+		var currentWindowOnload = window.onload;
+
+			if (currentWindowOnload) {
+				currentWindowOnload();
+			}
+
+		function execJasmine() {
+			jasmineEnv.execute();
+		}
+
+		execJasmine();
+	});

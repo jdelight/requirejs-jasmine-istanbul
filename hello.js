@@ -1,7 +1,7 @@
 define(['world'], function(world){
 
 	function init () {
-		console.log('hello '+world.init());
+		return 'hello '+world.init();
 	}
 
 	return {
