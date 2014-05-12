@@ -1,0 +1,25 @@
+{
+  "name": "requirejs-jasmine-istanbul",
+  "version": "0.0.0",
+  "description": "testing requirejs, jasmine istanbul",
+  "main": "main.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jdelight/requirejs-jasmine-istanbul"
+  },
+  "author": "James Da Costa",
+  "bugs": {
+    "url": "https://github.com/jdelight/requirejs-jasmine-istanbul/issues"
+  },
+  "homepage": "https://github.com/jdelight/requirejs-jasmine-istanbul",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-connect": "^0.7.1"
+  }
+}
