@@ -15,6 +15,6 @@ Then open your browser to: http://0.0.0.0:9001/tests/specRunner.html
 
 You should see coverage data in terminal.
 
-To view the coverage in html (Lcov) format, change `text` to `html` in `tools/create_cov.sh`
+To view the coverage in html format, change `text` to `html` in `tools/create_cov.sh`
 
 
