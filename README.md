@@ -3,7 +3,7 @@ requirejs-jasmine-istanbul
 
 Testing how istanbul works with jasmine and requirejs
 
-To get started just run: 
+To get started run: 
   
   `npm run dev`
   
