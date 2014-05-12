@@ -1,5 +1,4 @@
-var istanbul = require('istanbul'),
-    fs = require('fs'),
+var fs = require('fs'),
     exec = require('child_process').exec;
 module.exports = function(grunt) {
 
