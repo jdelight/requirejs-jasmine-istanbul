@@ -6,6 +6,7 @@ Testing how istanbul works with jasmine and requirejs
 You'll need grunt and istanbul installed:
 
   `npm install -g grunt-cli`
+  
   `npm install -g istanbul`
 
 To get started run: 
