@@ -24,7 +24,7 @@ module.exports = function(grunt) {
                                             console.log(err);
                                         } else {
                                             console.log("Created coverage.json");
-                                            exec('./tools/create_cov.sh', function(err, stdout, stderr) {
+                                            exec('istanbul report --root ./cov/ --dir ./report/ html', function(err, stdout, stderr) {
                                                 if (stderr) {
                                                     console.log('stderr: ' + stderr);
                                                 }
@@ -75,7 +75,7 @@ module.exports = function(grunt) {
     grunt.registerTask('instrument', function() {
 
         console.log('instrumenting files...');
-        exec('./tools/instrument_files.sh', function(err, stdout, stderr) {
+        exec('istanbul instrument src -o src-cov', function(err, stdout, stderr) {
             if (stderr) {
                 console.log('stderr: ' + stderr);
             }
